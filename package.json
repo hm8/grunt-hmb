@@ -1,0 +1,41 @@
+{
+  "name": "grunt-hmb",
+  "description": "The grunt plugin for hmb",
+  "version": "0.1.0",
+  "homepage": "https://github.com/hm8/grunt-hmb",
+  "author": {
+    "name": "leoxie",
+    "email": "leozone08@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hm8/grunt-hmb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hm8/grunt-hmb/issues"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/hm8/grunt-hmb/blob/master/LICENSE-MIT"
+  }],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.1"
+  },
+
+  "keywords": [
+    "gruntplugin"
+  ]
+}
