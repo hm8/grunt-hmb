@@ -141,7 +141,7 @@ module.exports = function(grunt) {
 
     var args = ['release', '-d', options.dist];
 
-    grunt.util._.forEach(options.command, function(param) {
+    grunt.util._.forEach(options.command.split(','), function(param) {
       if (all_command.indexOf(param) >= 0) {
         args.push('-' + param);
       }
@@ -151,7 +151,7 @@ module.exports = function(grunt) {
       cmd: 'hmb',
       args: args,
       opts: {
-        cwd: options.dist
+        cwd: options.src
       }
     }, function(err) {
       if (err) {
