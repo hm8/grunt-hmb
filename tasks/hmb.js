@@ -62,8 +62,13 @@ module.exports = function(grunt) {
         };
 
         re.deps.forEach(function(dep) {
-          var res_index = res[dep],
-            res_index_pkg = res_index.type + '_pkg';
+          var res_index = res[dep];
+          if (!res_index) {
+            grunt.log.error('没有在(' + re.uri + ')中找到依赖(' + dep + ')');
+            return false;
+          }
+
+          var res_index_pkg = res_index.type + '_pkg';
 
           dep_stat_add(dep, key);
 
@@ -73,7 +78,7 @@ module.exports = function(grunt) {
                 var p = pkg[res_index.pkg];
 
                 result[res_index.type].push(p.uri);
-                
+
                 p.has.forEach(function(v) {
                   result[res_index_pkg][v] = true;
                 });
