@@ -1,7 +1,7 @@
 {
   "name": "grunt-hmb",
   "description": "The grunt plugin for hmb",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "homepage": "https://github.com/hm8/grunt-hmb",
   "author": {
     "name": "leoxie",

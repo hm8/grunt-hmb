@@ -162,6 +162,7 @@ module.exports = function(grunt) {
       src: './site/',
       dist: '../dist',
       pack: true,
+      env: false,
       command: all_command
     });
 
@@ -180,6 +181,10 @@ module.exports = function(grunt) {
         args.push('-' + param);
       }
     });
+
+    if (options.env) {
+      grunt.util._.extend(process.env, options.env);
+    }
 
     var child = grunt.util.spawn({
       cmd: 'hmb',
