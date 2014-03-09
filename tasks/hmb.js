@@ -10,7 +10,8 @@ module.exports = function(grunt) {
 
   'use strict';
 
-  var fs = require('fs');
+  var fs = require('fs'),
+    path = require('path');
 
   var compile_html = function(src, dist, pkg_enable) {
 
@@ -101,6 +102,28 @@ module.exports = function(grunt) {
     grunt.file.write(path_dist + '/dep_stat.json', JSON.stringify(dep_stat));
   };
 
+  var rmDirSync = function(p) {
+    if (!fs.existsSync(p) || !fs.statSync(p).isDirectory()) return;
+    var files = fs.readdirSync(p);
+    //直接删除空文件夹
+    if (!files.length) {
+      fs.rmdirSync(p);
+      return;
+    } else {
+      //文件夹不为空，依次删除文件夹下的文件
+      files.forEach(function(file) {
+        var fullName = path.join(p, file);
+        if (fs.statSync(fullName).isDirectory()) {
+          rmDirSync(fullName);
+        } else {
+          fs.unlinkSync(fullName);
+        }
+      });
+    }
+    //删除根文件夹
+    fs.rmdirSync(p);
+  };
+
   grunt.registerTask("hma", 'add a module', function() {
     var options = this.options({
       src: './site/',
@@ -141,6 +164,12 @@ module.exports = function(grunt) {
       pack: true,
       command: all_command
     });
+
+    var is_clean = grunt.option('clean');
+    if (is_clean) {
+      rmDirSync(options.dist);
+      grunt.log.success('Successfully clean.');
+    }
 
     grunt.log.subhead('Building hmb...');
 
