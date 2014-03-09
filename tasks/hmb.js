@@ -168,7 +168,7 @@ module.exports = function(grunt) {
 
     var is_clean = grunt.option('clean');
     if (is_clean) {
-      rmDirSync(options.dist);
+      rmDirSync(options.src + options.dist);
       grunt.log.success('Successfully clean.');
     }
 
