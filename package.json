@@ -14,10 +14,12 @@
   "bugs": {
     "url": "https://github.com/hm8/grunt-hmb/issues"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/hm8/grunt-hmb/blob/master/LICENSE-MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/hm8/grunt-hmb/blob/master/LICENSE-MIT"
+    }
+  ],
   "main": "Gruntfile.js",
   "engines": {
     "node": ">= 0.8.0"
@@ -26,15 +28,13 @@
     "test": "grunt"
   },
   "peerDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": ">=0.4.0"
   },
-
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.4",
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.1"
   },
-
   "keywords": [
     "gruntplugin"
   ]
